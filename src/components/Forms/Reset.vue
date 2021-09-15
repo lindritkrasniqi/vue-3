@@ -75,6 +75,9 @@ export default {
     onSubmit() {
       this.loading = !this.loading;
 
+      this.credentials.token = this.$route.query.token;
+      this.credentials.email = this.$route.query.email;
+
       this.axios
         .post("api/reset", this.credentials)
         .then(() => this.$router.push({ name: "index" }))
